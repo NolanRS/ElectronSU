@@ -1,0 +1,284 @@
+<div class="wrapper wrapper-full-page">
+    <div class="full-page" data-image="../assets/img/login.jpeg">
+        <div class="content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <h2 class="description">SU Asset Database Management</h2>
+                        <h5 class="description">SEATTLE UNIVERSITY ASSET DATABASE</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card card-product">
+                            <div class="card-image" data-header-animation="true">
+                                <a href="#pablo">
+                                    <img class="img" src="../assets/img/card-2.jpeg">
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <a>ADD A NEW ASSET</a>
+                                </h4>
+                                <div class="card-description">
+                                    Add a New Asset to the Current SU Asset Database
+                                    <div class="text-center">
+                                        <button type="button" onclick="$('#addAssetModal').modal('show')"
+                                                class="btn btn-rose btn-round btn-fill btn-wd">ADD
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card card-product">
+                            <div class="card-image" data-header-animation="true">
+                                <a href="#pablo">
+                                    <img class="img" src="../assets/img/card-2.jpeg">
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <a>SEARCH FOR AN ASSET</a>
+                                </h4>
+                                <div class="card-description">
+                                    Search for an Asset from the Current SU Asset Database
+                                    <div class="text-center">
+                                        <button type="button" onclick="$('#searchAssetModal').modal('show')"
+                                                class="btn btn-rose btn-round btn-fill btn-wd">SEARCH
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card card-product">
+                            <div class="card-image" data-header-animation="true">
+                                <a href="#pablo">
+                                    <img class="img" src="../assets/img/card-2.jpeg">
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <a href="#pablo">UPDATE AN ASSET</a>
+                                </h4>
+                                <div class="card-description">
+                                    Update an Current SU Asset Database
+                                    <div class="text-center">
+                                        <button type="button" onclick="$('#updateAssetModal').modal('show')"
+                                                class="btn btn-rose btn-round btn-fill btn-wd">UPDATE
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card card-product">
+                            <div class="card-image" data-header-animation="true">
+                                <a href="#pablo">
+                                    <img class="img" src="../assets/img/card-2.jpeg">
+                                </a>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title">
+                                    <a href="#pablo">DELETE AN ASSET</a>
+                                </h4>
+                                <div class="card-description">
+                                    Delete an Asset from the Current SU Asset Database
+                                    <div class="text-center">
+                                        <button type="button" onclick="$('#deleteAssetModal').modal('show')"
+                                                class="btn btn-rose btn-round btn-fill btn-wd">DELETE
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODALS -->
+
+<!-- add asset modal -->
+<div class="modal fade" id="addAssetModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                        class="sr-only">Close</span></button>
+                <h3 class="modal-title" id="lineModalLabel">Add An Asset</h3>
+            </div>
+            <div class="modal-body">
+
+                <!-- content goes here -->
+                <form [formGroup]="assetAddForm" (submit)="onAddSubmit()" novalidate>
+                    <div class="form-group">
+                        <label for="assetTag">Computer Name</label>
+                        <input type="Tag" class="form-control" id="assetTag" formControlName="computerName"
+                               placeholder="Asset Tag Number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Asset Manufacturer</label>
+                        <select class="selectpicker" formControlName="manufacturer"
+                                data-style="btn btn-info btn-round" title="Asset Manufacturer" data-size="7">
+                            <option disabled> Choose Manufacturer</option>
+                            <option value="DELL">DELL</option>
+                            <option value="APPLE">APPLE</option>
+                            <option value="MICROSOFT">MICROSOFT</option>
+                            <option value="LENOVO">LENOVO</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Asset Type</label>
+                        <select class="selectpicker" formControlName="type"
+                                data-style="btn btn-info btn-round" title="Asset Type" data-size="7">
+                            <option disabled> Choose Asset Type</option>
+                            <option value="DESKTOP">DESKTOP</option>
+                            <option value="LAPTOP">LAPTOP</option>
+                            <option value="TABLET">TABLET</option>
+                            <option value="IMAC">IMAC</option>
+                            <option value="MACBOOK">MACBOOK</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Asset Location</label>
+                        <select class="selectpicker" formControlName="location"
+                                data-style="btn btn-info btn-round" title="Asset Building" data-size="7">
+                            <option disabled> Choose Building</option>
+                            <option value="CAMP">CAMP</option>
+                            <option value="CHDN">CHDN</option>
+                            <option value="ATMA">ATMA</option>
+                            <option value="CHDN">CHDN</option>
+                            <option value="ARRP">ARRP</option>
+                            <option value="PNRI">PNRI</option>
+                            <option value="8">LOYA</option>
+                            <option value="9">CASY</option>
+                            <option value="10">GARR</option>
+                            <option value="11">ADMN</option>
+                            <option value="12">FINR</option>
+                            <option value="13">HUNT</option>
+                            <option value="14">PIGT</option>
+                            <option value="15">BANN</option>
+                            <option value="16">ENGR</option>
+                            <option value="17">LEML</option>
+                            <option value="18">PAVL</option>
+                            <option value="19">BELL</option>
+                            <option value="20">SLLH</option>
+                            <option value="21">USVC</option>
+                            <option value="22">CNFA</option>
+                            <option value="23">CHAP</option>
+                            <option value="24">XAVR</option>
+                            <option value="25">ADAL</option>
+                            <option value="26">RINA</option>
+                            <option value="27">OBRN</option>
+                            <option value="28">DOUG</option>
+                            <option value="29">CLMB</option>
+                            <option value="30">CONN</option>
+                            <option value="31">JEFF</option>
+                        </select>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type='close' class='btn btn-default' data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--delete asset modal-->
+<div class="modal fade" id="deleteAssetModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                        class="sr-only">Close</span></button>
+                <h3 class="modal-title" id="deleteAsset">Delete An Asset</h3>
+            </div>
+            <div class="modal-body">
+
+                <form [formGroup]="assetSearchForm" (submit)="onFormSubmit('delete')"
+                      novalidate>
+                    <div class="form-group">
+                        <label for="assetTag">Asset Tag Number</label>
+                        <input type="Tag" class="form-control" formControlName="computerName"
+                               placeholder="Asset Tag Number" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type='close' class='btn btn-default' data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--update asset modal-->
+<div class="modal fade" id="updateAssetModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                        class="sr-only">Close</span></button>
+                <h3 class="modal-title" id="updateAsset">Update An Asset</h3>
+            </div>
+            <div class="modal-body">
+
+                <!-- content goes here -->
+                <form [formGroup]="assetSearchForm" (submit)="onFormSubmit('update')"
+                      novalidate>
+                    <div class="form-group">
+                        <label for="assetTag">Asset Tag Number</label>
+                        <input type="Tag" class="form-control" formControlName="computerName"
+                               placeholder="Asset Tag Number" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type='button' class='btn btn-default' data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--search asset modal-->
+<div class="modal fade" id="searchAssetModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                        class="sr-only">Close</span></button>
+                <h3 class="modal-title" id="searchAsset">Search for An Asset</h3>
+            </div>
+            <div class="modal-body">
+
+                <!-- content goes here -->
+                <form [formGroup]="assetSearchForm" (submit)="onFormSubmit('search')"
+                      novalidate>
+                    <div class="form-group">
+                        <label for="assetTag">Asset Tag Number</label>
+                        <input type="text" class="form-control" formControlName="computerName"
+                               placeholder="Asset Tag Number" required>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success">Submit</button>
+                        <button type='button' class='btn btn-default' data-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
